@@ -10,8 +10,8 @@ from service.models import db
 # Usage:
 #   flask db-create
 ######################################################################
-@app.cli.command("db-create")
-def db_create():
+@app.cli.command("create-db")
+def create_db():
     """
     Recreates a local database. You probably should not use this on
     production. ;-)
