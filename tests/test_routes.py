@@ -18,7 +18,7 @@ DATABASE_URI = os.getenv(
 "postgresql://postgres:postgres@localhost:5432/postgres"
 )
 
-BASE_URL = "/accounts"
+BASE_URL = "/api/accounts"
 
 
 ######################################################################
