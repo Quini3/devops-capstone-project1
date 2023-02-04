@@ -84,6 +84,7 @@ def internal_server_error(error):
         status.HTTP_500_INTERNAL_SERVER_ERROR,
     )
 
+
 def test_method_not_allowed(self):
     """It should not allow an illegal method call"""
     BASE_URL = "/accounts"
