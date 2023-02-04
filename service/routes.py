@@ -155,3 +155,4 @@ def test_get_account_list(self):
     self.assertEqual(resp.status_code, status.HTTP_200_OK)
     data = resp.get_json()
     self.assertEqual(len(data), 5)
+BASE_URL = "/accounts"
