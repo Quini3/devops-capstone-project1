@@ -12,14 +12,12 @@ from . import status
 ######################################################################
 @app.errorhandler(DataValidationError)
 def request_validation_error(error):
-    
     """Handles Value Errors from bad data"""
     return bad_request(error)
 
 
 @app.errorhandler(status.HTTP_400_BAD_REQUEST)
 def bad_request(error):
-    
     """Handles bad requests with 400_BAD_REQUEST"""
     message = str(error)
     app.logger.warning(message)
@@ -33,7 +31,6 @@ def bad_request(error):
 
 @app.errorhandler(status.HTTP_404_NOT_FOUND)
 def not_found(error):
-    
     """Handles resources not found with 404_NOT_FOUND"""
     message = str(error)
     app.logger.warning(message)
@@ -45,7 +42,6 @@ def not_found(error):
 
 @app.errorhandler(status.HTTP_405_METHOD_NOT_ALLOWED)
 def method_not_supported(error):
-    
     """Handles unsupported HTTP methods with 405_METHOD_NOT_SUPPORTED"""
     message = str(error)
     app.logger.warning(message)
@@ -61,7 +57,6 @@ def method_not_supported(error):
 
 @app.errorhandler(status.HTTP_415_UNSUPPORTED_MEDIA_TYPE)
 def mediatype_not_supported(error):
-    
     """Handles unsupported media requests with 415_UNSUPPORTED_MEDIA_TYPE"""
     message = str(error)
     app.logger.warning(message)
@@ -77,7 +72,6 @@ def mediatype_not_supported(error):
 
 @app.errorhandler(status.HTTP_500_INTERNAL_SERVER_ERROR)
 def internal_server_error(error):
-    
     """Handles unexpected server error with 500_SERVER_ERROR"""
     message = str(error)
     app.logger.error(message)
@@ -91,7 +85,6 @@ def internal_server_error(error):
     )
 
 def test_method_not_allowed(self):
-
     """It should not allow an illegal method call"""
     BASE_URL = "/accounts"
     resp = self.client.delete(BASE_URL)
