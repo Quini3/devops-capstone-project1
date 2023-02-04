@@ -60,10 +60,11 @@ def create_accounts():
 ######################################################################
 # LIST ALL ACCOUNTS
 ######################################################################
-from flask import jsonify
-import flask
+#from flask import jsonify
+#import flask
 
 @app.route("/accounts", methods=["GET"])
+
 def list_accounts():
     """
     List all Accounts
@@ -81,6 +82,7 @@ def list_accounts():
 # READ AN ACCOUNT
 ######################################################################
 @app.route("/accounts/<int:account_id>", methods=["GET"])
+
 def get_account(account_id):
     """
     Reads an Account
@@ -99,17 +101,16 @@ def get_account(account_id):
 # UPDATE AN EXISTING ACCOUNT
 ######################################################################
 @app.route("/accounts/<int:account_id>", methods=["PUT"])
+
 def update_accounts(account_id):
     """
     Update an Account
     This endpoint will update an Account based on the posted data
     """
     app.logger.info("Request to update an Account with id: %s", account_id)
-
     account = Account.find(account_id)
     if not account:
        abort(status.HTTP_404_NOT_FOUND, f"Account with id [{account_id}] could not be found.")
-
     account.deserialize(request.get_json())
     account.update()
 
@@ -129,7 +130,7 @@ def delete_accounts(account_id):
 
     account = Account.find(account_id)
     if account:
-       account.delete()
+    account.delete()
 
     return "", status.HTTP_204_NO_CONTENT
 
@@ -149,10 +150,13 @@ def check_content_type(media_type):
     )
 
 def test_get_account_list(self):
+
     """It should Get a list of Accounts"""
-    self._create_accounts(5)
+   
+   self._create_accounts(5)
     resp = self.client.get(BASE_URL)
     self.assertEqual(resp.status_code, status.HTTP_200_OK)
     data = resp.get_json()
     self.assertEqual(len(data), 5)
+
 BASE_URL = "/accounts"
